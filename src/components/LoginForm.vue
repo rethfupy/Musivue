@@ -1,6 +1,6 @@
 <template>
     <div
-        class="text-white text-center font-bold p4 mb-4 rounded"
+        class="text-white text-center font-bold p-4 rounded mb-4"
         v-if="login_show_alert"
         :class="login_alert_background"
     >
@@ -40,6 +40,9 @@
 </template>
 
 <script>
+import { mapActions } from 'pinia'
+import useUserStore from '@/stores/user'
+
 export default {
     name: 'loginForm',
     data() {
@@ -55,16 +58,26 @@ export default {
         }
     },
     methods: {
-        login(values) {
+        ...mapActions(useUserStore, ['authenticate']),
+        async login(values) {
             this.login_show_alert = true
             this.login_in_submission = true
             this.login_alert_background = 'bg-blue-500'
             this.login_alert_message = 'Logging in is in progress.'
 
+            try {
+                await this.authenticate(values)
+            } catch (error) {
+                this.login_in_submission = false
+                this.login_alert_background = 'bg-red-500'
+                this.login_alert_message = error
+                return
+            }
+
             this.login_alert_background = 'bg-green-500'
             this.login_alert_message = 'You are now logged in.'
 
-            console.log(values)
+            window.location.reload()
         },
     },
 }

@@ -1,22 +1,48 @@
-# music-app
+# Musivue
 
-This template should help get you started developing with Vue 3 in Vite.
+Musivue is a modern and responsive music app built entirely with Vue 3. It features a sleek audio player UI, user-friendly navigation, and modular component-based architecture.
 
-## Recommended IDE Setup
+## Tech Stack
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- Vue 3
+- Vite for development/build tooling
+- Vue Router for navigation (planned)
+- Pinia for state management
+- TailwindCSS
 
-## Customize configuration
+### Project Structure
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+src/
+├── assets/ # Static files (images, icons, etc.)
+├── components/ # Reusable components
+├── includes/ # Third-party plugins / libraries
+├── router/ # Vue Router configuration
+├── stores/ # Global states (Pinia)
+├── views/ # Main view-level components (pages)
+├── App.vue # Root component
+├── main.js # Entry point
 
-## Project Setup
+### Project Setup
+
+```sh
+git clone https://github.com/your-username/musivue.git
+cd musivue
+```
+
+### Install dependencies
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### 🔐 Firebase (Database) Configuration
+
+To connect to your own Firebase project:
+
+1. Create a `.env` file in the root of the project.
+2. Copy the structure from `.env.example` and fill in your Firebase project values.
+
+### Start the development server
 
 ```sh
 npm run dev
