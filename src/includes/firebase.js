@@ -2,6 +2,7 @@
 import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
+import 'firebase/storage'
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -18,5 +19,9 @@ firebase.initializeApp(firebaseConfig)
 const auth = firebase.auth()
 const db = firebase.firestore()
 const usersCollection = db.collection('users')
+const songsCollection = db.collection('songs')
 
-export { auth, db, usersCollection }
+// https://firebase.google.com/docs/storage/web/upload-files
+const storage = firebase.storage()
+
+export { auth, db, usersCollection, songsCollection, storage }

@@ -6,12 +6,13 @@ Musivue is a modern and responsive music app built entirely with Vue 3. It featu
 
 - Vue 3
 - Vite for development/build tooling
-- Vue Router for navigation (planned)
+- Vue Router for navigation
 - Pinia for state management
 - TailwindCSS
 
 ### Project Structure
 
+```sh
 src/
 ├── assets/ # Static files (images, icons, etc.)
 ├── components/ # Reusable components
@@ -21,6 +22,7 @@ src/
 ├── views/ # Main view-level components (pages)
 ├── App.vue # Root component
 ├── main.js # Entry point
+```
 
 ### Project Setup
 
