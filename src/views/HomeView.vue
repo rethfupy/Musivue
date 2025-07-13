@@ -33,22 +33,81 @@
             </div>
             <!-- Playlist -->
             <ol id="playlist">
-                <li
-                    class="flex justify-between items-center p-3 pl-6 cursor-pointer transition duration-300 hover:bg-gray-50"
-                >
-                    <div>
-                        <a href="#" class="font-bold block text-gray-600">Song Title</a>
-                        <span class="text-gray-500 text-sm">Artist Name</span>
-                    </div>
-                    <div class="text-gray-600 text-lg">
-                        <span class="comments">
-                            <i class="fa fa-comments text-gray-600"></i>
-                            15
-                        </span>
-                    </div>
-                </li>
+                <song-item
+                    v-for="(song, i) in songs"
+                    :key="song.songID"
+                    :song="song"
+                    :index="i"
+                ></song-item>
             </ol>
             <!-- .. end Playlist -->
         </div>
     </section>
 </template>
+
+<script>
+import SongItem from '@/components/SongItem.vue'
+import { songsCollection } from '@/includes/firebase'
+
+export default {
+    name: 'HomeView',
+    components: {
+        SongItem,
+    },
+    data() {
+        return {
+            songs: [],
+            amountPerPage: 10,
+            pendingRequest: false,
+        }
+    },
+    async created() {
+        this.getSongs()
+        window.addEventListener('scroll', this.handleScroll)
+    },
+    beforeUnmount() {
+        window.removeEventListener('scroll', this.handleScroll)
+    },
+    methods: {
+        async getSongs() {
+            if (this.pendingRequest) {
+                return
+            }
+
+            let records
+            this.pendingRequest = true
+            if (this.songs.length) {
+                const lastRecord = this.songs[this.songs.length - 1].snapshot
+                records = await songsCollection
+                    .orderBy('modified_name')
+                    .startAfter(lastRecord)
+                    .limit(this.amountPerPage)
+                    .get()
+            } else {
+                records = await songsCollection
+                    .orderBy('modified_name')
+                    .limit(this.amountPerPage)
+                    .get()
+            }
+
+            records.forEach((record) => {
+                this.songs.push({
+                    ...record.data(),
+                    songID: record.id,
+                    snapshot: record,
+                })
+            })
+            this.pendingRequest = false
+        },
+        handleScroll() {
+            const { scrollTop, offsetHeight } = document.documentElement
+            const { innerHeight } = window
+            const bottomOfWindow = Math.round(scrollTop) + innerHeight === offsetHeight
+
+            if (bottomOfWindow) {
+                this.getSongs()
+            }
+        },
+    },
+}
+</script>

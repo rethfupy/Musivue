@@ -20,8 +20,9 @@ const auth = firebase.auth()
 const db = firebase.firestore()
 const usersCollection = db.collection('users')
 const songsCollection = db.collection('songs')
+const commentsCollection = db.collection('comments')
 
 // https://firebase.google.com/docs/storage/web/upload-files
 const storage = firebase.storage()
 
-export { auth, db, usersCollection, songsCollection, storage }
+export { auth, db, usersCollection, songsCollection, commentsCollection, storage }
