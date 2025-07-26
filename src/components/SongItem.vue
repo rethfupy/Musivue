@@ -19,10 +19,8 @@
                 :to="{ name: 'song', params: { id: song.songID }, hash: '#comments' }"
                 v-slot="{ navigate }"
             >
-                <span class="comments" @click="navigate">
-                    <i class="fa fa-comments text-gray-600"></i>
-                    {{ song.comment_count }}
-                </span>
+                <span class="comments" @click="navigate" v-icon="'comments'"></span>
+                {{ song.comment_count }}
             </router-link>
         </div>
     </li>
