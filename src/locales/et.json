@@ -1,0 +1,82 @@
+{
+    "home": {
+        "title": "Kuula suurepärast muusikat!",
+        "subtitle": "Liitu kasvava muusikakogukonnaga. Kuula, kommenteeri ja jaga lugusid, mis sulle meeldivad — koos nendega, kes tunnevad samuti rütmi.",
+        "songs": "Laulud"
+    },
+    "header": {
+        "login": "Logi sisse / Registreeru",
+        "manage": "Halda",
+        "logout": "Logi välja"
+    },
+    "song": {
+        "comments_count": "Kommentaare pole | 1 kommentaar | {count} kommentaari",
+        "uploaded_by": "Üles laadinud {author}",
+        "your_comment": "Sinu kommentaar siia...",
+        "latest": "Uusimad",
+        "oldest": "Vanimad",
+        "publishing_in_progress": "Kommentaari avaldamine...",
+        "publishing_completed": "Kommentaar on avaldatud!",
+        "just_now": "Praegu",
+        "mins_ago": "min tagasi",
+        "hours_ago": "tundi tagasi"
+    },
+    "manage": {
+        "songs": "Minu laulud",
+        "upload": "Lae üles",
+        "dropping": "Lohista oma failid siia",
+        "upload_file": "Lae fail üles",
+        "song": "Loo pealkiri",
+        "song_placeholder": "Sisesta loo pealkiri",
+        "genre": "Žanr",
+        "genre_placeholder": "Sisesta žanr",
+        "confirm_leave": "Teil on salvestamata muudatusi. Kas olete kindel, et soovite lahkuda?"
+    },
+    "register": {
+        "name": "Nimi",
+        "name_placeholder": "Sisesta nimi",
+        "email": "E-post",
+        "email_placeholder": "Sisesta e-post",
+        "age": "Vanus",
+        "age_placeholder": "Sisesta vanus",
+        "password": "Parool",
+        "confirm_password": "Kinnita parool",
+        "country": "Riik",
+        "accept": "Ma nõustun Musivue {0}-ga",
+        "tos": "Kasutustingimused",
+        "register_in_progress": "Konto loomine on pooleli.",
+        "register_completed": "Edu! Sinu konto on loodud."
+    },
+    "login": {
+        "email": "E-post",
+        "email_placeholder": "Sisesta e-post",
+        "password": "Parool",
+        "logging_in_progress": "Sisselogimine toimub...",
+        "logging_completed": "Oled nüüd sisse logitud.",
+        "your_account": "Sinu konto",
+        "login": "Logi sisse",
+        "register": "Registreeru"
+    },
+    "country": {
+        "usa": "USA",
+        "mexico": "Mehhiko",
+        "germany": "Saksamaa",
+        "estonia": "Eesti"
+    },
+    "button": {
+        "submit": "Saada",
+        "back": "Tagasi"
+    },
+    "validation": {
+        "required": "Väli {field} on kohustuslik.",
+        "min": "Väli {field} on liiga lühike.",
+        "max": "Väli {field} on liiga pikk.",
+        "alpha_spaces": "Väli {field} võib sisaldada ainult tähti ja tühikuid.",
+        "email": "Väli {field} peab olema kehtiv e-posti aadress.",
+        "min_value": "Väli {field} on liiga väike.",
+        "max_value": "Väli {field} on liiga suur.",
+        "passwords_mismatch": "Paroolid ei kattu.",
+        "tos": "Peate nõustuma kasutustingimustega.",
+        "invalid": "Väli {field} on sobimatu."
+    }
+}

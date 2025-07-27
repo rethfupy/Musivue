@@ -25,23 +25,23 @@
             </div>
             <vee-form :validation-schema="schema" :initial-values="song" @submit="editSong">
                 <div class="mb-3">
-                    <label class="inline-block mb-2">Song Title</label>
+                    <label class="inline-block mb-2">{{ $t('manage.song') }}</label>
                     <vee-field
                         type="text"
                         name="modified_name"
                         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-                        placeholder="Enter Song Title"
+                        :placeholder="$t('manage.song_placeholder')"
                         @input="updateUnsavedFlag(true)"
                     />
                     <ErrorMessage class="text-red-600" name="modified_name" />
                 </div>
                 <div class="mb-3">
-                    <label class="inline-block mb-2">Genre</label>
+                    <label class="inline-block mb-2">{{ $t('manage.genre') }}</label>
                     <vee-field
                         type="text"
                         name="genre"
                         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-                        placeholder="Enter Genre"
+                        :placeholder="$t('manage.genre_placeholder')"
                         @input="updateUnsavedFlag(true)"
                     />
                     <ErrorMessage class="text-red-600" name="genre" />
@@ -51,14 +51,14 @@
                     class="py-1.5 px-3 rounded text-white bg-violet-500 mr-2 hover:bg-violet-600 hover:cursor-pointer"
                     :disabled="in_submission"
                 >
-                    Submit
+                    {{ $t('button.submit') }}
                 </button>
                 <button
                     type="button"
                     class="py-1.5 px-3 rounded text-white bg-gray-500 hover:bg-gray-600 hover:cursor-pointer"
                     @click.prevent="showForm = false"
                 >
-                    Go Back
+                    {{ $t('button.back') }}
                 </button>
             </vee-form>
         </div>

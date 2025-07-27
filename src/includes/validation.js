@@ -16,6 +16,9 @@ import {
     confirmed,
 } from '@vee-validate/rules'
 
+import i18n from '@/includes/i18n'
+const { t } = i18n.global
+
 export default {
     install(app) {
         app.component('VeeForm', VeeForm)
@@ -35,20 +38,20 @@ export default {
         configure({
             generateMessage: (ctx) => {
                 const messages = {
-                    required: `The field ${ctx.field} is required.`,
-                    min: `The field ${ctx.field} is too short.`,
-                    max: `The field ${ctx.field} is too long.`,
-                    alpha_spaces: `The field ${ctx.field} may only contain alphabetical characters and spaces.`,
-                    email: `The field ${ctx.field} must be a valid email.`,
-                    min_value: `The field ${ctx.field} is too low.`,
-                    max_value: `The field ${ctx.field} is too high.`,
-                    passwords_mismatch: 'The passwords do not match.',
-                    tos: 'You must accept the Terms of Service.',
+                    required: t('validation.required', { field: ctx.field }),
+                    min: t('validation.min', { field: ctx.field }),
+                    max: t('validation.max', { field: ctx.field }),
+                    alpha_spaces: t('validation.alpha_spaces', { field: ctx.field }),
+                    email: t('validation.email', { field: ctx.field }),
+                    min_value: t('validation.min_value', { field: ctx.field }),
+                    max_value: t('validation.max_value', { field: ctx.field }),
+                    passwords_mismatch: t('validation.passwords_mismatch'),
+                    tos: t('validation.tos'),
                 }
 
                 const message = messages[ctx.rule.name]
                     ? messages[ctx.rule.name]
-                    : `The field ${ctx.field} is invalid.`
+                    : t('validation.invalid', { field: ctx.field })
 
                 return message
             },

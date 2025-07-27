@@ -29,7 +29,9 @@
                 v-icon.right.green="'comments'"
             >
                 <!-- Comment Count -->
-                <span class="card-title">Comments ({{ song.comment_count }})</span>
+                <span class="card-title">{{
+                    $tc('song.comments_count', song.comment_count, { count: song.comment_count })
+                }}</span>
             </div>
             <div class="p-6">
                 <div
@@ -44,7 +46,7 @@
                         as="textarea"
                         name="comment"
                         class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded mb-4"
-                        placeholder="Your comment here..."
+                        :placeholder="$t('song.your_comment')"
                     ></vee-field>
                     <ErrorMessage class="text-red-600" name="comment" />
                     <button
@@ -52,7 +54,7 @@
                         class="py-1.5 px-3 rounded text-white bg-green-600 block"
                         :disabled="in_submission"
                     >
-                        Submit
+                        {{ $t('button.submit') }}
                     </button>
                 </vee-form>
                 <!-- Sort Comments -->
@@ -60,8 +62,8 @@
                     v-model="sort"
                     class="block mt-4 py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 >
-                    <option value="desc">Latest</option>
-                    <option value="asc">Oldest</option>
+                    <option value="desc">{{ $t('song.latest') }}</option>
+                    <option value="asc">{{ $t('song.oldest') }}</option>
                 </select>
             </div>
         </div>
@@ -103,7 +105,7 @@ export default {
             in_submission: false,
             show_alert: false,
             alert_color: 'bg-blue-500',
-            alert_message: 'Publishing your comment...',
+            alert_message: this.$t('song.publishing_in_progress'),
         }
     },
     computed: {
@@ -137,7 +139,7 @@ export default {
             this.in_submission = true
             this.show_alert = true
             this.alert_color = 'bg-blue-500'
-            this.alert_message = 'Publishing your comment...'
+            this.alert_message = this.$t('song.publishing_in_progress')
 
             const comment = {
                 content: values.comment,
@@ -163,7 +165,7 @@ export default {
 
             this.in_submission = false
             this.alert_color = 'bg-green-500'
-            this.alert_message = 'Comment has been published!'
+            this.alert_message = this.$t('song.publishing_completed')
 
             resetForm()
         },
@@ -183,9 +185,9 @@ export default {
             const now = new Date()
             const diff = (now - date) / 1000
 
-            if (diff < 60) return 'Just now'
-            if (diff < 3600) return `${Math.floor(diff / 60)} mins ago`
-            if (diff < 86400) return `${Math.floor(diff / 3600)} hours ago`
+            if (diff < 60) return this.$t('song.just_now')
+            if (diff < 3600) return `${Math.floor(diff / 60)} ${this.$t('song.mins_ago')}`
+            if (diff < 86400) return `${Math.floor(diff / 3600)} ${this.$t('song.hours_ago')}`
 
             return date.toLocaleString('en-GB', {
                 day: '2-digit',

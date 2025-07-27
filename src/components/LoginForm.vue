@@ -9,23 +9,23 @@
     <vee-form :validation-schema="loginSchema" @submit="login">
         <!-- Email -->
         <div class="mb-3">
-            <label class="inline-block mb-2">Email</label>
+            <label class="inline-block mb-2">{{ $t('login.email') }}</label>
             <vee-field
                 name="email"
                 type="email"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-                placeholder="Enter Email"
+                :placeholder="$t('login.email_placeholder')"
             />
             <error-message class="text-red-600" name="email" />
         </div>
         <!-- Password -->
         <div class="mb-3">
-            <label class="inline-block mb-2">Password</label>
+            <label class="inline-block mb-2">{{ $t('login.password') }}</label>
             <vee-field
                 name="password"
                 type="password"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
-                placeholder="Password"
+                :placeholder="$t('login.password')"
             />
             <error-message class="text-red-600" name="password" />
         </div>
@@ -34,7 +34,7 @@
             class="block w-full bg-purple-600 text-white py-1.5 px-3 rounded transition hover:bg-purple-700"
             :disabled="login_in_submission"
         >
-            Submit
+            {{ $t('button.submit') }}
         </button>
     </vee-form>
 </template>
@@ -54,7 +54,7 @@ export default {
             login_in_submission: false,
             login_show_alert: false,
             login_alert_background: 'bg-blue-500',
-            login_alert_message: 'Logging in is in progress.',
+            login_alert_message: this.$t('login.logging_in_progress'),
         }
     },
     methods: {
@@ -63,7 +63,7 @@ export default {
             this.login_show_alert = true
             this.login_in_submission = true
             this.login_alert_background = 'bg-blue-500'
-            this.login_alert_message = 'Logging in is in progress.'
+            this.login_alert_message = this.$t('login.logging_in_progress')
 
             try {
                 await this.authenticate(values)
@@ -75,7 +75,7 @@ export default {
             }
 
             this.login_alert_background = 'bg-green-500'
-            this.login_alert_message = 'You are now logged in.'
+            this.login_alert_message = this.$t('login.logging_completed')
 
             window.location.reload()
         },

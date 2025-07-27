@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white rounded border border-gray-200 relative flex flex-col">
         <div class="px-6 pt-6 pb-5 font-bold border-b border-gray-200">
-            <span class="card-title">Upload</span>
+            <span class="card-title">{{ $t('manage.upload') }}</span>
             <i class="fas fa-upload float-right text-violet-400 text-2xl"></i>
         </div>
         <div class="p-6">
@@ -17,14 +17,14 @@
                 @dragleave.prevent.stop="is_dragover = false"
                 @drop.prevent.stop="upload($event)"
             >
-                <h5>Drop your files here</h5>
+                <h5>{{ $t('manage.dropping') }}</h5>
             </div>
             <input id="file-upload" type="file" multiple @change="upload($event)" class="hidden" />
             <label
                 for="file-upload"
                 class="inline-flex items-center gap-2 px-4 py-2 mt-4 mb-2 text-white bg-violet-400 rounded-lg cursor-pointer hover:bg-violet-500 transition"
             >
-                <i class="fas fa-upload"></i> Upload file
+                <i class="fas fa-upload"></i> {{ $t('manage.upload_file') }}
             </label>
             <!-- Progess Bars -->
             <div class="mb-4" v-for="upload in uploads" :key="upload.name">

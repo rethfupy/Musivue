@@ -1,0 +1,82 @@
+{
+    "home": {
+        "title": "Listen to Great Music!",
+        "subtitle": "Join a growing music community. Listen, comment, and share songs you love with others who feel the rhythm too.",
+        "songs": "Songs"
+    },
+    "header": {
+        "login": "Login / Register",
+        "manage": "Manage",
+        "logout": "Logout"
+    },
+    "song": {
+        "comments_count": "No comments | 1 comment | {count} comments",
+        "uploaded_by": "Uploaded by {author}",
+        "your_comment": "Your comment here...",
+        "latest": "Latest",
+        "oldest": "Oldest",
+        "publishing_in_progress": "Publishing your comment...",
+        "publishing_completed": "Comment has been published!",
+        "just_now": "Just now",
+        "mins_ago": "mins ago",
+        "hours_ago": "hours ago"
+    },
+    "manage": {
+        "songs": "My Songs",
+        "upload": "Upload",
+        "dropping": "Drop your files here",
+        "upload_file": "Upload file",
+        "song": "Song Title",
+        "song_placeholder": "Enter Song Title",
+        "genre": "Genre",
+        "genre_placeholder": "Enter Genre",
+        "confirm_leave": "You have unsaved changes. Are you sure you want to leave?"
+    },
+    "register": {
+        "name": "Name",
+        "name_placeholder": "Enter Name",
+        "email": "Email",
+        "email_placeholder": "Enter Email",
+        "age": "Age",
+        "age_placeholder": "Enter Age",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "country": "Country",
+        "accept": "I accept Musivue's {0}",
+        "tos": "Terms of Service",
+        "register_in_progress": "Account is being created.",
+        "register_completed": "Success! Your account has been created."
+    },
+    "login": {
+        "email": "Email",
+        "email_placeholder": "Enter Email",
+        "password": "Password",
+        "logging_in_progress": "Logging in is in progress.",
+        "logging_completed": "You are now logged in.",
+        "your_account": "Your Account",
+        "login": "Login",
+        "register": "Register"
+    },
+    "country": {
+        "usa": "USA",
+        "mexico": "Mexico",
+        "germany": "Germany",
+        "estonia": "Estonia"
+    },
+    "button": {
+        "submit": "Submit",
+        "back": "Back"
+    },
+    "validation": {
+        "required": "The field {field} is required.",
+        "min": "The field {field} is too short.",
+        "max": "The field {field} is too long.",
+        "alpha_spaces": "The field {field} may only contain alphabetical characters and spaces.",
+        "email": "The field {field} must be a valid email.",
+        "min_value": "The field {field} is too low.",
+        "max_value": "The field {field} is too high.",
+        "passwords_mismatch": "The passwords do not match.",
+        "tos": "You must accept the Terms of Service.",
+        "invalid": "The field {field} is invalid."
+    }
+}

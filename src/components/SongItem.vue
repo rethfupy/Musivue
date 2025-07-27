@@ -8,7 +8,9 @@
                 class="font-bold block text-gray-600"
                 >{{ song.modified_name }}</router-link
             >
-            <span class="text-gray-500 text-sm">Uploaded by {{ song.display_name }}</span>
+            <span class="text-gray-500 text-sm">{{
+                $t('song.uploaded_by', { author: song.display_name })
+            }}</span>
             <div class="text-gray-500 text-sm" v-if="song.genre != ''">
                 <strong>{{ song.genre }}</strong>
             </div>
