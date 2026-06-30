@@ -27,7 +27,7 @@ src/
 ### Project Setup
 
 ```sh
-git clone https://github.com/your-username/musivue.git
+git clone <repository-url>
 cd musivue
 ```
 
